@@ -12,19 +12,16 @@
   position: absolute;
   width: 65px;
   height: 65px;
-  opacity: 0; /* Make buttons invisible */
+  opacity: 0.2; /* Make buttons visible when testing, set back to 0 when done */
+  background-color: transparent;
   cursor: pointer;
   border-radius: 50%;
   /* z-index: -2; */
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.active {
-  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.75); /* White glow */
-  opacity: 0.05; /* Optional: Make the button slightly visible when active */
-}
-
-.volumeUp {
+/* OLD BUTTON POSITIONS */
+/* .volumeUp {
   top: 89px;
   left: 408px;
 }
@@ -48,4 +45,4 @@
   height: 200px;
   top: 170px;
   left: 340px;
-}
+} */
