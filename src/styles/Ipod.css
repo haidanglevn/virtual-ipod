@@ -1,0 +1,51 @@
+.iPodContainer {
+  position: relative;
+  width: auto; /* Adjust based on image size */
+}
+
+.iPodImage {
+  width: 100%; /* Responsive image scaling */
+  display: block; /* Removes bottom margin/gap */
+}
+
+.button {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  opacity: 0; /* Make buttons invisible */
+  cursor: pointer;
+  border-radius: 50%;
+  /* z-index: -2; */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.active {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.75); /* White glow */
+  opacity: 0.05; /* Optional: Make the button slightly visible when active */
+}
+
+.volumeUp {
+  top: 89px;
+  left: 408px;
+}
+
+.volumeDown {
+  top: 389px;
+  left: 408px;
+}
+
+.backward {
+  top: 240px;
+  left: 255px;
+}
+.forward {
+  top: 240px;
+  left: 558px;
+}
+
+.play {
+  width: 200px;
+  height: 200px;
+  top: 170px;
+  left: 340px;
+}
