@@ -1,16 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
-import InteractiveiPod from "./InteractiveIpod";
+import InteractiveiPod from "./components/InteractiveIpod";
+import MusicPlayer from "./components/MusicPlayer";
+import useMusicPlayerStore from "./stores/useMusicPlayerStore";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const initAudio = useMusicPlayerStore((state) => state.initAudio);
+
+  useEffect(() => {
+    initAudio();
+  }, [initAudio]);
 
   return (
-    <>
-      <InteractiveiPod></InteractiveiPod>
-    </>
+    <div className="app">
+      <div className="mediaWrapper">
+        <MusicPlayer />
+        <InteractiveiPod></InteractiveiPod>
+      </div>
+      <div>Frop</div>
+    </div>
   );
 }
 

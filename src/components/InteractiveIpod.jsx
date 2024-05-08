@@ -1,5 +1,5 @@
-import Shuffle2 from "./models/Shuffle2";
-import "./styles/InteractiveIpod.css";
+import Shuffle2 from "../models/Shuffle2";
+import "../styles/InteractiveIpod.css";
 
 function InteractiveiPod() {
   //  function to calculate button positions

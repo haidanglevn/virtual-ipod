@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import ipod from "../assets/shuffle_2.svg";
 import "../styles/Shuffle2.css";
+import useMusicPlayerStore from "../stores/useMusicPlayerStore";
 
 const Shuffle2 = () => {
   const imageRef = useRef(null);
@@ -11,6 +12,10 @@ const Shuffle2 = () => {
     forward: {},
     play: {},
   });
+
+  const handlePlayPause = useMusicPlayerStore((state) => state.handlePlayPause);
+  const handleNext = useMusicPlayerStore((state) => state.handleNext);
+  const handlePrev = useMusicPlayerStore((state) => state.handlePrev);
 
   const calculateStyles = () => {
     const imageWidth = imageRef.current.naturalWidth;
@@ -65,7 +70,7 @@ const Shuffle2 = () => {
     }
   }, []);
   return (
-    <>
+    <div className="iPodWrapper">
       <div className="iPodContainer">
         <img src={ipod} alt="iPod" className="iPodImage" ref={imageRef} />
         {Object.keys(buttonStyles).map((key) => (
@@ -73,11 +78,17 @@ const Shuffle2 = () => {
             key={key}
             style={buttonStyles[key]}
             className={`${key} button`}
+            onClick={() => {
+              if (key === "play") handlePlayPause();
+              else if (key === "forward") handleNext();
+              else if (key === "backward") handlePrev();
+              // else if (key === 'volumeUp') increaseVolume();
+              // else if (key === 'volumeDown') decreaseVolume();
+            }}
           ></button>
         ))}
       </div>
-      <h1>Ipod Shuffle Gen 2</h1>
-    </>
+    </div>
   );
 };
 
